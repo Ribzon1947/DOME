@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.env
+*.db
+backend/data/
+backend/logs/
+backend/storage/
+node_modules/
+frontend/dist/
+.DS_Store
+*.log
+credentials/
+backend/credentials/
+*-adminsdk*.json
+*-credentials*.json
+google-*.json
+firebase-*.json
