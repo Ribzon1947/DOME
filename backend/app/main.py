@@ -18,6 +18,14 @@ from app.routers import admin, auth, bookings, floormap, hardware, notifications
 
 settings = get_settings()
 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
+
 
 def seed_initial_data():
     from decimal import Decimal
