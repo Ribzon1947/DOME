@@ -1,13 +1,7 @@
-from flask import Flask
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route("/")
+@app.get("/")
 def home():
-    return "Hello from DOME! Your Render deployment is working 🎉"
-
-if __name__ == "__main__":
-    # Render expects the app to listen on 0.0.0.0 and the PORT environment variable
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    return {"message": "Hello from DOME on Render!"}
