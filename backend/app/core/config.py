@@ -1,6 +1,5 @@
 from functools import lru_cache
 from pathlib import Path
-import logging
 
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -77,9 +76,11 @@ class Settings(BaseSettings):
     def cors_origin_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 
-logging.warning(f"DB path resolved to: {settings.database_url}")
 
 
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
+
+import logging
+logging.warning(f"DB path resolved to: {get_settings().database_url}")
